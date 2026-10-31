@@ -1,0 +1,24 @@
+{
+  "name": "elio-invitation",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "dev": "npm run build && wrangler pages dev",
+    "deploy": "npm run build && wrangler pages deploy",
+    "db:setup": "node scripts/database.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@neondatabase/serverless": "^1.2.0"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "^0.5.8",
+    "neonctl": "^8.3.5",
+    "wrangler": "^4.149.0"
+  },
+  "overrides": {
+    "@hono/node-server": "^2.0.10",
+    "diff": "^5.2.2"
+  }
+}

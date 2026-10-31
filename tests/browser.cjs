@@ -1,0 +1,95 @@
+// Run against the local Cloudflare emulator or the published testing URL.
+// Uses disposable test records and restores any edited invitation details.
+const { chromium } = require('playwright');
+const fs = require('node:fs');
+const assert = require('node:assert/strict');
+const root = require('node:path').resolve(__dirname, '..');
+const base = process.env.TEST_URL || 'http://127.0.0.1:8788';
+const privateSettings = Object.fromEntries(fs.readFileSync(root + '/.dev.vars', 'utf8').trim().split(/\r?\n/).map(line => { const at = line.indexOf('='); return [line.slice(0, at), JSON.parse(line.slice(at + 1))]; }));
+(async () => {
+  const browser = await chromium.launch({ executablePath: 'C:/Program Files (x86)/Microsoft/Edge/Application/msedge.exe', headless: true });
+  const guestContext = await browser.newContext({ viewport: { width: 390, height: 844 }, reducedMotion: 'reduce' });
+  const hostContext = await browser.newContext({ viewport: { width: 1280, height: 900 }, reducedMotion: 'reduce', acceptDownloads: true });
+  const guest = await guestContext.newPage(), host = await hostContext.newPage();
+  const errors = [];
+  for (const page of [guest, host]) page.on('pageerror', e => errors.push(e.message));
+  let id, original;
+  try {
+    await guest.goto(base);
+    await guest.locator('#rsvp-form .privacy-note').filter({ hasText: 'sent privately' }).waitFor();
+    assert.equal(await guest.evaluate(() => document.documentElement.scrollWidth <= innerWidth), true);
+    await guest.locator('#guest-name').fill('Deployment test guest');
+    await guest.locator('#guest-note').fill('Disposable test RSVP');
+    await guest.locator('#rsvp-form [type=submit]').click();
+    await guest.locator('#rsvp-confirmation').waitFor({ state: 'visible' });
+    let response = await guestContext.request.get(base + '/api/reply');
+    id = (await response.json()).id;
+    assert.ok(id);
+    assert.equal((await hostContext.request.get(base + '/api/replies')).status(), 401);
+    await host.goto(base);
+    await host.locator('#host-sign-out').waitFor({ state: 'attached' });
+    await host.locator('#open-host').click();
+    await host.locator('#host-passcode').fill(privateSettings.HOST_PASSWORD);
+    await host.locator('#gate-form [type=submit]').click();
+    await host.locator('#host-replies').filter({ hasText: 'Deployment test guest' }).waitFor();
+    assert.ok((await (await hostContext.request.get(base + '/api/replies')).json()).some(r => r.id === id));
+    original = await (await hostContext.request.get(base + '/api/invitation')).json();
+    await host.locator('#host-editor-tab').click();
+    await host.locator('#edit-journalTitle').fill('Cloud save test journal');
+    await host.locator('#edit-photo-1').setInputFiles(root + '/elio pics/7731c4fa927d517d25eb0d750012622f.JPEG');
+    await host.locator('#editor-status').filter({ hasText: 'Photo added to your draft' }).waitFor();
+    await host.locator('#invitation-form [type=submit]').click();
+    await host.locator('#editor-status').filter({ hasText: 'Saved online' }).waitFor();
+    await guest.reload();
+    await guest.locator('#field-journal h2').filter({ hasText: 'Cloud save test journal' }).waitFor();
+    assert.equal((await (await hostContext.request.get(base + '/api/invitation')).json()).journalTitle, 'Cloud save test journal');
+    assert.match((await (await hostContext.request.get(base + '/api/invitation')).json()).photos[1], /^data:image\/jpeg;base64,/);
+    // Restore the whole config through the API, including the temporary uploaded photo.
+    await hostContext.request.put(base + '/api/invitation', { data: original, headers: { Origin: base } });
+    await host.reload();
+    await host.locator('#host-sign-out').waitFor({ state: 'attached' });
+    await host.locator('#open-host').click();
+    await host.locator('#host-view').waitFor({ state: 'visible' });
+    await host.locator('#host-editor-tab').click();
+    await host.locator('#edit-journalTitle').fill(original.journalTitle);
+    await host.locator('#invitation-form [type=submit]').click();
+    await host.locator('#editor-status').filter({ hasText: 'Saved online' }).waitFor();
+    const download = host.waitForEvent('download');
+    await host.locator('#download-invitation').click();
+    const artifact = await download;
+    const output = fs.readFileSync(await artifact.path(), 'utf8');
+    assert.ok(!output.includes('meta name="elio-backend"'));
+    for (const secret of Object.values(privateSettings)) assert.ok(!output.includes(secret));
+    await guest.locator('#change-reply').click();
+    await guest.locator('#guest-note').fill('Updated disposable reply');
+    await guest.locator('#rsvp-form [type=submit]').click();
+    await guest.locator('#rsvp-confirmation').waitFor({ state: 'visible' });
+    const records = await (await hostContext.request.get(base + '/api/replies')).json();
+    assert.equal(records.filter(r => r.id === id).length, 1);
+    assert.equal(records.find(r => r.id === id).note, 'Updated disposable reply');
+    await host.locator('#host-sign-out').click();
+    await host.locator('#toast').filter({ hasText: 'Signed out' }).waitFor();
+    assert.equal((await hostContext.request.get(base + '/api/replies')).status(), 401);
+    const failureContext = await browser.newContext();
+    const failurePage = await failureContext.newPage();
+    await failurePage.route('**/api/reply', route => route.request().method() === 'POST'
+      ? route.fulfill({ status: 503, contentType: 'application/json', body: JSON.stringify({ error: 'Test connection interruption' }) }) : route.continue());
+    await failurePage.goto(base);
+    await failurePage.locator('#rsvp-form .privacy-note').filter({ hasText: 'sent privately' }).waitFor();
+    await failurePage.locator('#guest-name').fill('Failed test reply');
+    await failurePage.locator('#rsvp-form [type=submit]').click();
+    await failurePage.locator('#toast').filter({ hasText: 'Test connection interruption' }).waitFor();
+    assert.equal(await failurePage.locator('#rsvp-confirmation').isVisible(), false);
+    assert.equal(await failurePage.locator('#rsvp-form [type=submit]').isEnabled(), true);
+    assert.equal(await failurePage.locator('#guest-name').inputValue(), 'Failed test reply');
+    await failureContext.close();
+    assert.deepEqual(errors, []);
+    console.log('Browser checks passed: real Neon RSVP sharing, host login, invitation saves, guest updates, offline export, mobile layout, and sign-out.');
+  } finally {
+    await hostContext.request.post(base + '/api/login', { data: { password: privateSettings.HOST_PASSWORD }, headers: { Origin: base } });
+    if (original) await hostContext.request.put(base + '/api/invitation', { data: original, headers: { Origin: base } });
+    if (id) await hostContext.request.delete(base + '/api/replies/' + id, { headers: { Origin: base } });
+    await hostContext.request.post(base + '/api/logout', { headers: { Origin: base } });
+    await browser.close();
+  }
+})().catch(e => { console.error(e.message); process.exitCode = 1; });
