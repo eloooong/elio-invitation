@@ -1,0 +1,15 @@
+{
+  "display": {
+    "family": "Caprasimo",
+    "css": "https://fonts.googleapis.com/css2?family=Caprasimo&display=swap",
+    "asset": "https://fonts.gstatic.com/s/caprasimo/v6/esDT31JQOPuXIUGBp72Ukp8D.woff2"
+  },
+  "body": {
+    "family": "Figtree",
+    "source": "Google Fonts, Latin variable subset"
+  },
+  "retired": {
+    "family": "Fraunces",
+    "reason": "Replaced to match approved rounded lettering"
+  }
+}

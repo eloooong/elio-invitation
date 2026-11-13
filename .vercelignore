@@ -1,0 +1,15 @@
+.git
+.wrangler
+.dev.vars*
+.env*
+HOST-ACCESS.txt
+deployment-secrets.json
+elio pics
+tests
+dist
+paper-cut-preview/review
+paper-cut-preview/**/*.png
+paper-cut-preview/README.md
+paper-cut-preview/DESIGN.md
+paper-cut-preview/PRODUCT.md
+paper-cut-preview/.impeccable

@@ -3,6 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
+    "assets:render": "node scripts/render-artwork.mjs",
+    "pretest": "npm run build",
     "build": "node scripts/build.mjs",
     "dev": "npm run build && wrangler pages dev",
     "deploy": "npm run build && wrangler pages deploy",
@@ -15,6 +17,7 @@
   "devDependencies": {
     "@electric-sql/pglite": "^0.5.8",
     "neonctl": "^8.3.5",
+    "sharp": "^0.35.5",
     "wrangler": "^4.149.0"
   },
   "overrides": {

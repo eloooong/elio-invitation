@@ -1,0 +1,188 @@
+/* The practical chapters: layered card, cut-paper tabs, and calm forest ink. */
+:is(#day-plan, .planning-grid, #guest-questions, #host-view, .dialog, .photo-dialog) {
+  --control-forest: #1e4b34;
+  --control-ivory: #f6f0df;
+  --control-gold: #efb34f;
+  --control-sage: #859b61;
+  --control-kraft: #cbb489;
+  --control-muted: #546247;
+  --control-line: #c9c4a9;
+  color: var(--control-forest);
+}
+[hidden] { display: none !important; }
+:is(#day-plan, .planning-grid, #guest-questions) .section-top { gap: 15px; margin-bottom: 24px; }
+:is(#day-plan, .planning-grid, #guest-questions) .section-no {
+  width: 44px; height: 44px; border: 0; border-radius: 15px 15px 17px 6px;
+  background: var(--control-gold); color: var(--control-forest);
+  box-shadow: inset 0 1px 0 #fff9d7, 0 3px 0 #c9933f, 0 6px 9px #243d2614;
+}
+:is(#day-plan, .planning-grid, #guest-questions) .eyebrow { color: #657449; font-size: 10px; letter-spacing: 1.8px; }
+:is(#day-plan, .planning-grid, #guest-questions) h2 {
+  font-family: var(--display, "Fraunces", Georgia, serif); font-weight: 650;
+  font-size: clamp(30px, 4vw, 39px); line-height: 1.12; letter-spacing: -1px;
+  color: var(--control-forest); text-wrap: balance;
+}
+#invitation :is(#day-plan, .planning-grid) .paper-card,
+#host-view .paper-card, .dialog, .photo-dialog {
+  border: 1px solid #d5c9aa; border-radius: 23px;
+  background-color: var(--control-ivory); background-image: none;
+  box-shadow: 0 3px 0 #e8dcc0, 0 7px 0 #cbb489, 0 15px 30px #243d2611;
+}
+#invitation #day-plan .paper-card {
+  display: grid; gap: 14px; padding: 17px; border-color: #173d2b;
+  background: var(--control-forest); box-shadow: 0 4px 0 #173c2a, 0 8px 0 #b9a780, 0 17px 30px #243d2614;
+}
+#day-plan .guide-row {
+  align-items: start; gap: 15px; padding: 23px; border: 0; border-radius: 15px 19px 17px 7px;
+  background: var(--control-ivory); box-shadow: 0 3px 0 #d6c6a3;
+}
+#day-plan .guide-row:first-child, #day-plan .guide-row:last-child { padding: 23px; }
+#day-plan .guide-icon {
+  width: 38px; height: 42px; border-radius: 50% 50% 43% 43%;
+  color: #244d32; background: #ced8b3; box-shadow: 0 3px 0 #a8b98a;
+}
+#day-plan .guide-row .label { color: #657449; font-size: 10px; letter-spacing: 1.7px; margin-bottom: 6px; }
+#day-plan .guide-row p:not(.label) { font-size: 15px; line-height: 1.7; color: #304a36; }
+#day-plan .guide-row strong { color: var(--control-forest); font-weight: 750; }
+#day-plan .calendar-actions { column-gap: 15px; margin-top: 6px; }
+#day-plan .calendar { min-height: 44px; color: #245534; gap: 7px; text-underline-offset: 4px; font-size: 12px; }
+#day-plan .calendar-file { text-decoration: underline; text-decoration-color: #a9b58e; }
+.planning-grid { row-gap: 44px; }
+#invitation .planning-grid .map-card { padding: 10px; overflow: hidden; }
+.planning-grid .venue-map { height: 315px; border: 1px solid #c5bea0; border-radius: 15px 15px 5px 5px; background: #c4cdac; }
+.planning-grid .map-copy { padding: 24px 14px 16px; }
+.planning-grid .map-copy h3 { font: 650 25px/1.2 var(--display, "Fraunces", Georgia, serif); letter-spacing: -.5px; }
+.planning-grid .map-copy p { color: var(--control-muted); line-height: 1.75; }
+:is(.planning-grid, #host-view, .dialog) .button-row { gap: 10px; }
+:is(.planning-grid, #host-view, .dialog) .btn {
+  min-height: 48px; border: 1px solid #173d2b; border-radius: 13px 13px 15px 5px;
+  background: var(--control-forest); color: #fff9e9; box-shadow: 0 3px 0 #123723, 0 6px 9px #243d2610;
+  font-family: Figtree, system-ui, sans-serif; font-weight: 750; transition: transform 160ms ease, box-shadow 160ms ease;
+}
+:is(.planning-grid, #host-view, .dialog) .btn.secondary {
+  border-color: #bcb18d; background: #e8e7cc; color: var(--control-forest); box-shadow: 0 3px 0 #c5bd98;
+}
+:is(.planning-grid, #host-view, .dialog) .btn:hover:not(:disabled) { transform: translateY(-2px); }
+:is(.planning-grid, #host-view, .dialog) .btn:active:not(:disabled) { transform: translateY(2px); box-shadow: none; }
+#invitation .planning-grid .rsvp-card { padding: 30px; border-top: 1px solid #d5c9aa; }
+.planning-grid .rsvp-card::before {
+  content: "YOUR PLACE IN THE ADVENTURE"; display: block; width: fit-content;
+  margin: -40px 0 23px; padding: 10px 17px; border-radius: 3px 5px 6px 2px;
+  background: var(--control-gold); color: #32442b; box-shadow: 0 3px 0 #c99643;
+  font: 800 9px/1.4 Figtree, system-ui, sans-serif; letter-spacing: 1.2px;
+}
+.planning-grid .form-intro { color: var(--control-muted); font-size: 14px; line-height: 1.75; margin-bottom: 26px; }
+:is(.planning-grid, #host-view, .dialog) :is(label, .field-label, legend) { color: #294a33; font-size: 14px; font-weight: 750; }
+:is(.planning-grid, #host-view, .dialog) :is(label span, .optional) { color: #606a50; }
+:is(.planning-grid, #host-view, .dialog) :is(input:not([type="radio"], [type="file"]), textarea, select) {
+  min-height: 52px; padding: 13px 14px; border: 1px solid #abae8c; border-radius: 10px 10px 11px 4px;
+  background: #fffbed; color: #263f2e; box-shadow: inset 0 2px 3px #675d2d0a, 0 1px 0 #ffffffa6;
+  font-family: Figtree, system-ui, sans-serif; font-size: 16px; line-height: 1.5;
+}
+:is(.planning-grid, #host-view, .dialog) :is(input, textarea)::placeholder { color: #71755c; opacity: 1; }
+:is(.planning-grid, #host-view, .dialog) textarea { min-height: 112px; }
+:is(.planning-grid, #host-view, .dialog) [aria-invalid="true"] { border: 2px solid #9c4d23; }
+:is(.planning-grid, #host-view, .dialog) .error { color: #8e3d1b; font-size: 13px; }
+.planning-grid .attendance { gap: 12px; }
+.planning-grid .attendance span { min-height: 54px; border-color: #abae8c; border-radius: 10px 10px 11px 4px; background: #fffbed; color: #294a33; font-size: 13px; }
+.planning-grid .attendance input:checked + span { border-color: var(--control-forest); background: #dae0bd; color: #24472e; box-shadow: inset 0 0 0 1px #1e4b34, 0 3px 0 #a3b280; }
+.planning-grid .stepper { min-height: 52px; border-color: #abae8c; border-radius: 10px 10px 11px 4px; background: #fffbed; }
+.planning-grid .stepper button { width: 46px; height: 50px; color: #1e4b34; background: #e7e8cb; }
+.planning-grid .stepper button:hover:not(:disabled) { background: #d7dfb7; }
+.planning-grid .stepper button:disabled { color: #727c5c; background: #efedda; }
+.planning-grid .stepper output { color: #294a33; font-weight: 800; }
+.planning-grid .submit { margin-top: 4px; margin-bottom: 19px; min-height: 54px; }
+.planning-grid .privacy-note { color: #606a50; font-size: 12px; line-height: 1.7; }
+.planning-grid .confirmation { padding: 22px 0; }
+.planning-grid .stamp { border-color: #55733f; color: #426137; border-radius: 7px; font: 700 20px/1.3 var(--display, "Fraunces", Georgia, serif); letter-spacing: 2px; box-shadow: 0 2px 0 #d6d9b9; }
+.planning-grid .stamp.no { color: #8d5525; border-color: #a47745; }
+.planning-grid .confirmation h3 { font: 650 30px/1.2 var(--display, "Fraunces", Georgia, serif); color: #1e4b34; }
+.planning-grid .confirmation p { color: #546247; }
+#guest-questions { margin-top: 64px; padding-top: 40px; border-top: 1px solid #c8c5a8; }
+#guest-questions .questions-heading { margin-bottom: 30px; }
+#guest-questions .questions-heading .section-no { margin-bottom: 18px; background: #ced8b3; box-shadow: 0 3px 0 #a3b280; }
+#guest-questions .section-desc { color: #546247; font-size: 15px; }
+#guest-questions .faq-list { display: grid; gap: 14px; border: 0; background: none; border-radius: 0; box-shadow: none; overflow: visible; }
+#guest-questions .faq-item { border: 1px solid #d0c7a8; border-radius: 13px 18px 16px 5px; background: #f6f0df; box-shadow: 0 3px 0 #d6c8a6, 0 7px 12px #243d2609; }
+#guest-questions .faq-item summary { min-height: 68px; padding: 20px 25px; color: #1e4b34; font-size: 15px; font-weight: 750; }
+#guest-questions .faq-item summary .ui-icon { color: #6b7d4b; }
+#guest-questions .faq-item[open] summary { padding-bottom: 12px; }
+#guest-questions .faq-answer { padding: 0 25px 24px; color: #546247; font-size: 14px; line-height: 1.8; }
+#host-view { max-width: 850px; padding-bottom: 32px; }
+#host-view .host-header { padding: 34px 0; }
+#host-view .host-header h1 { font: 650 clamp(40px, 7vw, 57px)/1.1 var(--display, "Fraunces", Georgia, serif); letter-spacing: -1.7px; }
+#host-view :is(.host-header p, .muted, .reply-meta time, .small) { color: #546247; }
+#host-view .host-header .eyebrow { margin-top: 23px; font-size: 10px; letter-spacing: 1.6px; }
+#host-view .host-nav { padding: 7px; border: 1px solid #b8bd98; border-radius: 16px; background: #dbe0c1; box-shadow: 0 3px 0 #b2be94; }
+#host-view .host-tab { border-radius: 11px 11px 12px 4px; color: #1e4b34; min-height: 48px; }
+#host-view .host-tab[aria-pressed="true"] { background: #1e4b34; color: #fff9e9; box-shadow: 0 3px 0 #173b29; }
+#host-view .stats { gap: 13px; margin-top: 30px; margin-bottom: 26px; }
+#host-view .stat { padding: 25px 8px 20px; border: 1px solid #355d3c; border-radius: 16px 21px 18px 6px; background: #1e4b34; color: #fff9e9; box-shadow: 0 4px 0 #9ba978; }
+#host-view .stat b { font: 650 42px/1.2 var(--display, "Fraunces", Georgia, serif); color: #efb34f; }
+#host-view .stat span { display: block; margin-top: 8px; font-size: 12px; }
+#host-view :is(.host-panel h2, .editor-card h2) { font: 650 29px/1.2 var(--display, "Fraunces", Georgia, serif); letter-spacing: -.6px; }
+#host-view .storage-notice { border: 1px solid #c6b38d; border-radius: 12px 12px 13px 4px; background: #e8dfc5; color: #554f36; padding: 18px 20px; }
+#host-view .filter-chips { flex-wrap: wrap; }
+#host-view .filter-chips button { min-height: 44px; border-color: #b5b78f; border-radius: 8px 8px 10px 4px; background: #f6f0df; color: #1e4b34; box-shadow: 0 2px 0 #d3c7a8; }
+#host-view .filter-chips button[aria-pressed="true"] { background: #1e4b34; color: #fff9e9; border-color: #1e4b34; box-shadow: 0 2px 0 #173b29; }
+#host-view .reply-card { margin-bottom: 21px; }
+#host-view .reply-heading h3 { font-size: 18px; }
+#host-view .pill { background: #d8e0b9; color: #35552f; border-radius: 5px; }
+#host-view .pill.no { background: #ead8ae; color: #79501e; }
+#host-view .remove-btn { color: #8e4c25; border-radius: 7px; }
+#host-view .host-manual summary { min-height: 44px; line-height: 1.6; }
+#host-view .editor-card { padding: 30px; }
+#host-view .editor-section { margin-top: 32px; padding-top: 26px; border-top-color: #c6bea0; }
+#host-view .editor-section legend { padding-right: 14px; font: 650 21px/1.3 var(--display, "Fraunces", Georgia, serif); }
+#host-view :is(.editor-stop, .editor-note, .edit-photo) { padding: 20px; border: 1px solid #c5c3a1; border-radius: 15px 18px 15px 5px; background: #e8e9cf; box-shadow: 0 3px 0 #c6c9a4; }
+#host-view :is(.editor-stop h3, .editor-stop-header h3, .edit-photo h3) { color: #345236; }
+#host-view :is(.stop-action, .trail-icon-toggle) { min-height: 48px; border-color: #adb58d; border-radius: 10px 10px 11px 4px; background: #fffbed; color: #1e4b34; }
+#host-view .stop-action { min-height: 44px; }
+#host-view .trail-icon-picker { border-color: #bac09c; background: #f6f0df; }
+#host-view .trail-icon-option { min-height: 70px; background: #e5e8ca; color: #1e4b34; border-color: #bdc49d; border-radius: 9px 9px 10px 3px; }
+#host-view .trail-icon-option[aria-pressed="true"] { background: #1e4b34; color: #fff9e9; border-color: #1e4b34; box-shadow: 0 3px 0 #a2b27d; }
+#host-view .edit-photo-preview { border: 5px solid #f6f0df; border-radius: 4px; box-shadow: 0 2px 3px #243d2620; }
+#host-view .photo-upload { align-items: center; justify-content: center; }
+#host-view .editor-status { color: #365b34; }
+#host-view .editor-status.error-state { color: #8e3d1b; }
+#host-view .text-btn, .planning-grid .text-btn { min-height: 44px; color: #245534; text-underline-offset: 4px; }
+#host-view .host-footer { padding-top: 30px; }
+.dialog { padding: 32px; max-width: 430px; max-height: calc(100dvh - 40px); overflow-y: auto; }
+.dialog::backdrop, .photo-dialog::backdrop { background: #173c2bd9; backdrop-filter: blur(5px); }
+.dialog h2 { font: 650 35px/1.15 var(--display, "Fraunces", Georgia, serif); letter-spacing: -1px; color: #1e4b34; }
+.dialog p { color: #546247; }
+.dialog .eyebrow { color: #6b784c; letter-spacing: 1.5px; }
+.photo-dialog { background: #f6f0df; color: #1e4b34; }
+.photo-dialog :is(h2, .eyebrow, .photo-dialog-footer p) { color: #1e4b34; }
+:is(#day-plan, .planning-grid, #guest-questions, #host-view, .dialog, .photo-dialog) :is(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid #94681c; outline-offset: 4px;
+}
+.planning-grid .attendance input:focus-visible + span { outline: 3px solid #94681c; outline-offset: 4px; }
+:is(.planning-grid, #host-view, .dialog) button:disabled { cursor: default; transform: none; }
+@media (min-width: 760px) {
+  #invitation #day-plan .paper-card { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  #day-plan .guide-row { grid-template-columns: 38px minmax(0, 1fr); }
+}
+@media (max-width: 599px) {
+  #invitation #day-plan .paper-card { padding: 12px; gap: 11px; }
+  #day-plan .guide-row, #day-plan .guide-row:first-child, #day-plan .guide-row:last-child { padding: 20px 16px; gap: 13px; }
+  #invitation .planning-grid .rsvp-card { padding: 26px 22px; }
+  .planning-grid .rsvp-card::before { margin-top: -36px; font-size: 8px; padding-inline: 13px; }
+  .planning-grid .map-copy { padding: 23px 10px 14px; }
+  .planning-grid .venue-map { height: 275px; }
+  .planning-grid .button-row .btn { flex: 1 1 135px; padding-inline: 12px; font-size: 12px; }
+  #guest-questions .faq-item summary { padding: 19px 20px; }
+  #guest-questions .faq-answer { padding-inline: 20px; }
+  #host-view .editor-card { padding: 24px 18px; }
+  #host-view :is(.editor-stop, .editor-note, .edit-photo) { padding: 15px 12px; }
+  #host-view .editor-grid, #host-view .editor-stop .editor-grid { grid-template-columns: minmax(0, 1fr); }
+  #host-view .editor-stop-header { flex-wrap: wrap; }
+  #host-view .stats { gap: 9px; }
+  #host-view .stat { padding-inline: 4px; }
+  #host-view .stat b { font-size: 35px; }
+  #host-view .stat span { font-size: 11px; }
+  .dialog { padding: 27px 23px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  :is(.planning-grid, #host-view, .dialog) .btn { transition: none; }
+}

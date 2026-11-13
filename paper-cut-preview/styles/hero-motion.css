@@ -1,0 +1,42 @@
+/* Every actor moves as one original paper cutout. The frame stays still. */
+.paper-preview .poster .scene { filter: none; }
+.paper-preview #field-journal .paper-card-frame { filter: none; }
+.paper-preview .scene .hero-native-canvas { overflow: visible; pointer-events: none; }
+.paper-preview .scene :is(.hero-idle,.hero-hello,.hero-ray-sway) { transform-box: view-box; transform-origin: var(--hero-pivot); }
+.paper-preview .scene .hero-cloud-1 { animation: hero-cloud-left 23s ease-in-out -6s infinite; }
+.paper-preview .scene .hero-cloud-2 { animation: hero-cloud-right 29s ease-in-out -15s infinite; }
+.paper-preview .scene .hero-ray-sway { animation: hero-rays 13s ease-in-out -3s infinite; }
+.paper-preview .scene .hero-sun-warmth { opacity: 0; animation: hero-sunlight 9s ease-in-out -2s infinite; }
+.paper-preview .scene .hero-character-elephant .hero-idle { animation: hero-elephant-breathe 7.8s ease-in-out -2.4s infinite; }
+.paper-preview .scene .hero-character-lion .hero-idle { animation: hero-lion-breathe 8.6s ease-in-out -5.2s infinite; }
+.paper-preview .scene .hero-character-zebra .hero-idle { animation: hero-zebra-breathe 7.1s ease-in-out -1.4s infinite; }
+.paper-preview .scene .hero-character-giraffe .hero-idle { animation: hero-giraffe-sway 9.4s ease-in-out -3s infinite; }
+.paper-preview .scene .hero-character-monkey .hero-idle { animation: hero-monkey-swing 6.8s ease-in-out -1.8s infinite; }
+.paper-preview .scene .hero-water-glint { fill: none; stroke: #fff2cb; stroke-width: 3; stroke-linecap: round; stroke-dasharray: 12 88; opacity: 0; animation: hero-water 8s linear infinite; }
+.paper-preview .scene .glint-2 { animation-delay: -2.7s; }
+.paper-preview .scene .glint-3 { animation-delay: -5.4s; }
+.paper-preview .scene .hero-character.reacting .hero-hello { animation: hero-paper-hello 620ms cubic-bezier(.22,.8,.3,1) both; }
+.paper-preview .scene .hero-character-monkey.reacting .hero-hello { animation-name: hero-monkey-hello; }
+.paper-preview .scene .hero-character-giraffe.reacting .hero-hello { animation-name: hero-giraffe-hello; }
+.paper-preview .scene [data-animal].reacting .animal-hit { fill: transparent; stroke: transparent; }
+.paper-preview .scene [data-animal]:focus-visible .animal-hit { stroke: #efb34f; stroke-width: 3; }
+/* Shorthands above set defaults; visibility controls always take precedence. */
+.paper-preview .scene :is(.hero-idle,.hero-hello,.hero-cloud,.hero-ray-sway,.hero-sun-warmth,.hero-water-glint) { animation-play-state: var(--animal-play, paused) !important; }
+
+@keyframes hero-cloud-left { 0%,100% { transform: translate(0,0); } 35% { transform: translate(10px,-2px); } 72% { transform: translate(-7px,1px); } }
+@keyframes hero-cloud-right { 0%,100% { transform: translate(0,0); } 40% { transform: translate(-11px,2px); } 78% { transform: translate(7px,-1px); } }
+@keyframes hero-rays { 0%,100% { transform: rotate(0); opacity: 1; } 35% { transform: rotate(1.5deg); opacity: .9; } 73% { transform: rotate(-1.2deg); opacity: 1; } }
+@keyframes hero-sunlight { 0%,100% { opacity: .01; } 50% { opacity: .075; } }
+@keyframes hero-elephant-breathe { 0%,100% { transform: scale(1); } 48% { transform: scale(1.004,1.014); } }
+@keyframes hero-lion-breathe { 0%,100% { transform: scale(1); } 57% { transform: scale(1.006,1.014); } }
+@keyframes hero-zebra-breathe { 0%,100% { transform: scale(1); } 44% { transform: scale(1.004,1.012); } }
+@keyframes hero-giraffe-sway { 0%,100% { transform: rotate(0); } 30% { transform: rotate(.35deg); } 72% { transform: rotate(-.3deg); } }
+@keyframes hero-monkey-swing { 0%,100% { transform: rotate(0); } 28% { transform: rotate(1.8deg); } 73% { transform: rotate(-1.5deg); } }
+@keyframes hero-water { 0% { stroke-dashoffset: 100; opacity: 0; } 15%,75% { opacity: .42; } 100% { stroke-dashoffset: -100; opacity: 0; } }
+@keyframes hero-paper-hello { 0%,100% { transform: translateY(0) scale(1); } 34% { transform: translateY(-7px) scale(1.018,1.025); } 66% { transform: translateY(1px) scale(1.007,.996); } }
+@keyframes hero-monkey-hello { 0%,100% { transform: rotate(0); } 23% { transform: rotate(6deg); } 56% { transform: rotate(-4deg); } 80% { transform: rotate(1.8deg); } }
+@keyframes hero-giraffe-hello { 0%,100% { transform: rotate(0); } 34% { transform: rotate(1.2deg); } 65% { transform: rotate(-.5deg); } }
+
+@media (prefers-reduced-motion: reduce) {
+  .paper-preview .scene :is(.hero-idle,.hero-hello,.hero-cloud,.hero-ray-sway,.hero-sun-warmth,.hero-water-glint) { animation: none !important; transform: none; }
+}

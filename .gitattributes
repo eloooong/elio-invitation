@@ -1,0 +1,3 @@
+# Preserve authored asset bytes, including the JSON inputs checked by artwork hashes.
+/assets/** -text
+/paper-cut-preview/assets/** -text

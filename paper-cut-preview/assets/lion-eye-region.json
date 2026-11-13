@@ -1,0 +1,18 @@
+{
+  "source": "../review/lion-eye-edited-atlas.png",
+  "atlasSize": [
+    1448,
+    1086
+  ],
+  "rect": [
+    1353,
+    132,
+    30,
+    31
+  ],
+  "eyeCenter": [
+    1370,
+    150
+  ],
+  "blendRadius": 13
+}

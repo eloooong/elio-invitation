@@ -1,0 +1,704 @@
+{
+  "hero": {
+    "pieces": {
+      "elephant": {
+        "file": "hero-elephant.webp",
+        "x": 182,
+        "y": 566,
+        "width": 460,
+        "height": 397
+      },
+      "lion": {
+        "file": "hero-lion.webp",
+        "x": 581,
+        "y": 740,
+        "width": 290,
+        "height": 273
+      },
+      "monkey": {
+        "file": "hero-monkey.webp",
+        "x": 279,
+        "y": 425,
+        "width": 175,
+        "height": 187
+      },
+      "zebra": {
+        "file": "hero-zebra.webp",
+        "x": 539,
+        "y": 487,
+        "width": 183,
+        "height": 164
+      },
+      "giraffe": {
+        "file": "hero-giraffe.webp",
+        "x": 1034,
+        "y": 503,
+        "width": 236,
+        "height": 478
+      },
+      "cloudLeft": {
+        "file": "hero-cloudLeft.webp",
+        "x": 391,
+        "y": 199,
+        "width": 278,
+        "height": 99
+      },
+      "cloudRight": {
+        "file": "hero-cloudRight.webp",
+        "x": 1023,
+        "y": 263,
+        "width": 232,
+        "height": 88
+      },
+      "sunRays": {
+        "file": "hero-sunRays.webp",
+        "x": 671,
+        "y": 140,
+        "width": 352,
+        "height": 339
+      }
+    },
+    "base": {
+      "file": "hero-base.webp",
+      "x": 0,
+      "y": 0,
+      "width": 1414,
+      "height": 1113
+    }
+  },
+  "walk": {
+    "elephant": {
+      "body": {
+        "file": "body-elephant.webp",
+        "x": 13,
+        "y": 33,
+        "width": 389,
+        "height": 339
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-elephant-rear-far.webp",
+          "x": 122,
+          "y": 305,
+          "width": 44,
+          "height": 56
+        },
+        "front-far": {
+          "file": "leg-elephant-front-far.webp",
+          "x": 238,
+          "y": 304,
+          "width": 57,
+          "height": 59
+        },
+        "rear-near": {
+          "file": "leg-elephant-rear-near.webp",
+          "x": 47,
+          "y": 305,
+          "width": 83,
+          "height": 66
+        },
+        "front-near": {
+          "file": "leg-elephant-front-near.webp",
+          "x": 168,
+          "y": 305,
+          "width": 79,
+          "height": 67
+        }
+      }
+    },
+    "giraffe": {
+      "body": {
+        "file": "body-giraffe.webp",
+        "x": 410,
+        "y": 8,
+        "width": 272,
+        "height": 363
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-giraffe-rear-far.webp",
+          "x": 482,
+          "y": 301,
+          "width": 45,
+          "height": 67
+        },
+        "front-far": {
+          "file": "leg-giraffe-front-far.webp",
+          "x": 579,
+          "y": 301,
+          "width": 53,
+          "height": 67
+        },
+        "rear-near": {
+          "file": "leg-giraffe-rear-near.webp",
+          "x": 438,
+          "y": 301,
+          "width": 51,
+          "height": 70
+        },
+        "front-near": {
+          "file": "leg-giraffe-front-near.webp",
+          "x": 544,
+          "y": 301,
+          "width": 45,
+          "height": 70
+        }
+      }
+    },
+    "zebra": {
+      "body": {
+        "file": "body-zebra.webp",
+        "x": 733,
+        "y": 62,
+        "width": 328,
+        "height": 308
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-zebra-rear-far.webp",
+          "x": 818,
+          "y": 299,
+          "width": 52,
+          "height": 67
+        },
+        "front-far": {
+          "file": "leg-zebra-front-far.webp",
+          "x": 932,
+          "y": 299,
+          "width": 54,
+          "height": 69
+        },
+        "rear-near": {
+          "file": "leg-zebra-rear-near.webp",
+          "x": 768,
+          "y": 299,
+          "width": 55,
+          "height": 71
+        },
+        "front-near": {
+          "file": "leg-zebra-front-near.webp",
+          "x": 889,
+          "y": 299,
+          "width": 51,
+          "height": 71
+        }
+      }
+    },
+    "lion": {
+      "body": {
+        "file": "body-lion.webp",
+        "x": 1099,
+        "y": 62,
+        "width": 325,
+        "height": 311
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-lion-rear-far.webp",
+          "x": 1191,
+          "y": 304,
+          "width": 68,
+          "height": 66
+        },
+        "front-far": {
+          "file": "leg-lion-front-far.webp",
+          "x": 1314,
+          "y": 304,
+          "width": 76,
+          "height": 67
+        },
+        "rear-near": {
+          "file": "leg-lion-rear-near.webp",
+          "x": 1128,
+          "y": 304,
+          "width": 70,
+          "height": 69
+        },
+        "front-near": {
+          "file": "leg-lion-front-near.webp",
+          "x": 1258,
+          "y": 304,
+          "width": 68,
+          "height": 69
+        }
+      }
+    },
+    "hippo": {
+      "body": {
+        "file": "body-hippo.webp",
+        "x": 342,
+        "y": 431,
+        "width": 352,
+        "height": 277
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-hippo-rear-far.webp",
+          "x": 442,
+          "y": 648,
+          "width": 38,
+          "height": 46
+        },
+        "front-far": {
+          "file": "leg-hippo-front-far.webp",
+          "x": 549,
+          "y": 649,
+          "width": 70,
+          "height": 51
+        },
+        "rear-near": {
+          "file": "leg-hippo-rear-near.webp",
+          "x": 373,
+          "y": 638,
+          "width": 74,
+          "height": 64
+        },
+        "front-near": {
+          "file": "leg-hippo-front-near.webp",
+          "x": 477,
+          "y": 643,
+          "width": 75,
+          "height": 64
+        }
+      }
+    },
+    "rhino": {
+      "body": {
+        "file": "body-rhino.webp",
+        "x": 720,
+        "y": 425,
+        "width": 358,
+        "height": 282
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-rhino-rear-far.webp",
+          "x": 814,
+          "y": 640,
+          "width": 49,
+          "height": 56
+        },
+        "front-far": {
+          "file": "leg-rhino-front-far.webp",
+          "x": 934,
+          "y": 640,
+          "width": 58,
+          "height": 60
+        },
+        "rear-near": {
+          "file": "leg-rhino-rear-near.webp",
+          "x": 747,
+          "y": 637,
+          "width": 73,
+          "height": 70
+        },
+        "front-near": {
+          "file": "leg-rhino-front-near.webp",
+          "x": 867,
+          "y": 639,
+          "width": 74,
+          "height": 68
+        }
+      }
+    },
+    "monkey": {
+      "body": {
+        "file": "body-monkey.webp",
+        "x": 42,
+        "y": 410,
+        "width": 232,
+        "height": 307
+      },
+      "parts": {
+        "right-far": {
+          "file": "leg-monkey-right-far.webp",
+          "x": 186,
+          "y": 651,
+          "width": 72,
+          "height": 63
+        },
+        "left-near": {
+          "file": "leg-monkey-left-near.webp",
+          "x": 118,
+          "y": 652,
+          "width": 68,
+          "height": 65
+        }
+      }
+    },
+    "antelope": {
+      "body": {
+        "file": "body-antelope.webp",
+        "x": 1123,
+        "y": 388,
+        "width": 288,
+        "height": 327
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-antelope-rear-far.webp",
+          "x": 1179,
+          "y": 629,
+          "width": 52,
+          "height": 82
+        },
+        "front-far": {
+          "file": "leg-antelope-front-far.webp",
+          "x": 1295,
+          "y": 624,
+          "width": 54,
+          "height": 86
+        },
+        "rear-near": {
+          "file": "leg-antelope-rear-near.webp",
+          "x": 1128,
+          "y": 637,
+          "width": 46,
+          "height": 75
+        },
+        "front-near": {
+          "file": "leg-antelope-front-near.webp",
+          "x": 1262,
+          "y": 627,
+          "width": 40,
+          "height": 88
+        }
+      }
+    },
+    "cheetah": {
+      "body": {
+        "file": "body-cheetah.webp",
+        "x": 11,
+        "y": 749,
+        "width": 331,
+        "height": 314
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-cheetah-rear-far.webp",
+          "x": 118,
+          "y": 982,
+          "width": 54,
+          "height": 72
+        },
+        "front-far": {
+          "file": "leg-cheetah-front-far.webp",
+          "x": 229,
+          "y": 983,
+          "width": 60,
+          "height": 74
+        },
+        "rear-near": {
+          "file": "leg-cheetah-rear-near.webp",
+          "x": 76,
+          "y": 982,
+          "width": 55,
+          "height": 78
+        },
+        "front-near": {
+          "file": "leg-cheetah-front-near.webp",
+          "x": 188,
+          "y": 982,
+          "width": 56,
+          "height": 81
+        }
+      }
+    },
+    "ostrich": {
+      "body": {
+        "file": "body-ostrich.webp",
+        "x": 381,
+        "y": 724,
+        "width": 266,
+        "height": 345
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-ostrich-rear-far.webp",
+          "x": 445,
+          "y": 980,
+          "width": 64,
+          "height": 89
+        },
+        "front-near": {
+          "file": "leg-ostrich-front-near.webp",
+          "x": 503,
+          "y": 980,
+          "width": 76,
+          "height": 86
+        }
+      }
+    },
+    "crocodile": {
+      "body": {
+        "file": "body-crocodile.webp",
+        "x": 648,
+        "y": 840,
+        "width": 444,
+        "height": 186
+      },
+      "parts": {
+        "front-far": {
+          "file": "leg-crocodile-front-far.webp",
+          "x": 938,
+          "y": 976,
+          "width": 72,
+          "height": 29
+        },
+        "rear-near": {
+          "file": "leg-crocodile-rear-near.webp",
+          "x": 766,
+          "y": 981,
+          "width": 78,
+          "height": 41
+        },
+        "front-near": {
+          "file": "leg-crocodile-front-near.webp",
+          "x": 875,
+          "y": 981,
+          "width": 73,
+          "height": 44
+        }
+      }
+    },
+    "tortoise": {
+      "body": {
+        "file": "body-tortoise.webp",
+        "x": 1105,
+        "y": 830,
+        "width": 323,
+        "height": 213
+      },
+      "parts": {
+        "rear-far": {
+          "file": "leg-tortoise-rear-far.webp",
+          "x": 1186,
+          "y": 1004,
+          "width": 50,
+          "height": 25
+        },
+        "front-far": {
+          "file": "leg-tortoise-front-far.webp",
+          "x": 1320,
+          "y": 997,
+          "width": 60,
+          "height": 35
+        },
+        "rear-near": {
+          "file": "leg-tortoise-rear-near.webp",
+          "x": 1119,
+          "y": 988,
+          "width": 64,
+          "height": 51
+        },
+        "front-near": {
+          "file": "leg-tortoise-front-near.webp",
+          "x": 1255,
+          "y": 988,
+          "width": 60,
+          "height": 55
+        }
+      }
+    }
+  },
+  "mini": {
+    "elephant": {
+      "file": "mini-elephant.webp",
+      "x": 13,
+      "y": 33,
+      "width": 389,
+      "height": 339
+    },
+    "giraffe": {
+      "file": "mini-giraffe.webp",
+      "x": 410,
+      "y": 8,
+      "width": 272,
+      "height": 363
+    },
+    "zebra": {
+      "file": "mini-zebra.webp",
+      "x": 733,
+      "y": 62,
+      "width": 328,
+      "height": 308
+    },
+    "lion": {
+      "file": "mini-lion.webp",
+      "x": 1099,
+      "y": 62,
+      "width": 325,
+      "height": 311
+    },
+    "hippo": {
+      "file": "mini-hippo.webp",
+      "x": 342,
+      "y": 431,
+      "width": 352,
+      "height": 277
+    },
+    "rhino": {
+      "file": "mini-rhino.webp",
+      "x": 720,
+      "y": 425,
+      "width": 358,
+      "height": 282
+    },
+    "monkey": {
+      "file": "mini-monkey.webp",
+      "x": 42,
+      "y": 410,
+      "width": 232,
+      "height": 307
+    },
+    "antelope": {
+      "file": "mini-antelope.webp",
+      "x": 1123,
+      "y": 388,
+      "width": 288,
+      "height": 327
+    },
+    "cheetah": {
+      "file": "mini-cheetah.webp",
+      "x": 11,
+      "y": 749,
+      "width": 331,
+      "height": 314
+    },
+    "ostrich": {
+      "file": "mini-ostrich.webp",
+      "x": 381,
+      "y": 724,
+      "width": 266,
+      "height": 345
+    },
+    "crocodile": {
+      "file": "mini-crocodile.webp",
+      "x": 648,
+      "y": 840,
+      "width": 444,
+      "height": 186
+    },
+    "tortoise": {
+      "file": "mini-tortoise.webp",
+      "x": 1105,
+      "y": 830,
+      "width": 323,
+      "height": 213
+    }
+  },
+  "props": {
+    "painted-frame": {
+      "file": "prop-painted-frame.webp",
+      "x": 0,
+      "y": 0,
+      "width": 330,
+      "height": 342
+    },
+    "paper-photo-frame": {
+      "file": "prop-paper-photo-frame.webp",
+      "x": 0,
+      "y": 0,
+      "width": 269,
+      "height": 339
+    },
+    "storybook-leaves": {
+      "file": "prop-storybook-leaves.webp",
+      "x": 0,
+      "y": 0,
+      "width": 254,
+      "height": 348
+    },
+    "painted-ribbon": {
+      "file": "prop-painted-ribbon.webp",
+      "x": 0,
+      "y": 0,
+      "width": 360,
+      "height": 146
+    },
+    "tree": {
+      "file": "prop-tree.webp",
+      "x": 0,
+      "y": 0,
+      "width": 348,
+      "height": 295
+    },
+    "painted-meadow": {
+      "file": "prop-painted-meadow.webp",
+      "x": 0,
+      "y": 0,
+      "width": 378,
+      "height": 108
+    },
+    "painted-grass": {
+      "file": "prop-painted-grass.webp",
+      "x": 0,
+      "y": 0,
+      "width": 378,
+      "height": 108
+    },
+    "painted-seedgrass": {
+      "file": "prop-painted-seedgrass.webp",
+      "x": 0,
+      "y": 0,
+      "width": 378,
+      "height": 108
+    },
+    "painted-sun": {
+      "file": "prop-painted-sun.webp",
+      "x": 0,
+      "y": 0,
+      "width": 250,
+      "height": 243
+    },
+    "butterfly": {
+      "file": "prop-butterfly.webp",
+      "x": 0,
+      "y": 0,
+      "width": 226,
+      "height": 174
+    },
+    "bird": {
+      "file": "prop-bird.webp",
+      "x": 0,
+      "y": 0,
+      "width": 251,
+      "height": 209
+    },
+    "storybook-compass": {
+      "file": "prop-storybook-compass.webp",
+      "x": 0,
+      "y": 0,
+      "width": 235,
+      "height": 302
+    },
+    "storybook-binoculars": {
+      "file": "prop-storybook-binoculars.webp",
+      "x": 0,
+      "y": 0,
+      "width": 285,
+      "height": 219
+    },
+    "paper-hills": {
+      "file": "prop-paper-hills.webp",
+      "x": 0,
+      "y": 0,
+      "width": 382,
+      "height": 123
+    }
+  },
+  "inputs": {
+    "diorama.webp": "2e1a616ee971a73cca8f7316c6b841780ead837efa58f0086c488efca9480dcd",
+    "hero-motion-background.webp": "6722142a8d9e300bc018b22d83086ec63145e3a348e2ed46e37fa35e30c6461e",
+    "hero-monkey-background.webp": "86c41ebf9b49b382d98f1ab0e08df0b12f8a1f1ef9f63b3d543550a8c2427d87",
+    "paper-animals.webp": "5f27703566ae37dbdfe55761a37ddf8dd1d5e351578acd3ad8d8126844c44305",
+    "paper-props.webp": "a0882f4771eab39fb936a97fd59d1b82fc2ec1e6a6951045bf4e1ff266da5af8",
+    "paper-texture.webp": "0b9bea94ca887c31b91f40be83feb9b8ce7006aadc31f0028ce3f27dcffc534f",
+    "lion-eye.webp": "e93fc562e246570a0f411c5248218625131dd7b75dd37177e815d1bcce8b363a",
+    "hero-animals-a.json": "54fe578211676143b2a8b199663adc2754087c130e32ea8c1bea3ab61f90b62e",
+    "hero-animals-b.json": "731a50b749002699d80a9b4e5de8185495ff17ca4c19a95af2721df5a0306115",
+    "hero-ambient-layers.json": "6eef3003ecf5c5089bc6da9cd4c0b2e60583811c72f253b1228ccfc2eb1f0118",
+    "paper-walk-rig.json": "5a30e67c6af026c25a2a8ec6802815d7611793e2fbe6fb7325e4b8c59c582d2a"
+  },
+  "texture": "paper-texture.webp"
+}

@@ -1,0 +1,18 @@
+{
+  "tree": [7, 42, 360, 308],
+  "storybook-leaves": [367, 32, 562, 316],
+  "painted-frond": [657, 33, 906, 312],
+  "painted-meadow": [910, 127, 1238, 232],
+  "painted-cloud": [23, 411, 293, 564],
+  "painted-bunting": [301, 409, 618, 556],
+  "painted-sun": [644, 365, 885, 611],
+  "painted-frame": [924, 330, 1239, 641],
+  "storybook-compass": [42, 651, 263, 941],
+  "storybook-binoculars": [313, 695, 610, 922],
+  "butterfly": [634, 709, 914, 899],
+  "bird": [945, 659, 1223, 925],
+  "paw": [51, 1004, 257, 1204],
+  "painted-grass": [318, 1006, 583, 1196],
+  "painted-seedgrass": [643, 973, 843, 1212],
+  "painted-ribbon": [878, 1036, 1240, 1176]
+}
